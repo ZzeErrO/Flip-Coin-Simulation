@@ -15,8 +15,24 @@ do
 		((TAIL++))
 	fi
 
+	if [ $HEAD -eq 21 ]
+	then
+		echo HEAD=$HEAD
+		echo TAIL=$TAIL
+		echo HEAD WINS BY $(($HEAD-$TAIL))
+		break
+	elif [ $TAIL -eq 21 ]
+	then
+		echo HEAD=$HEAD
+		echo TAIL=$TAIL
+		echo TAIL WINS BY $(($TAIL-$HEAD))
+		break
+	fi
+	if [ $HEAD -eq $TAIL ]
+   then
+      echo TIE WITH $HEAD FOR BOTH
+      break
+	fi
 	x=$(($x+1))
-done
 
-echo $HEAD
-echo $TAIL
+done
