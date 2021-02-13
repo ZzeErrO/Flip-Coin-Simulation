@@ -1,11 +1,22 @@
 #!/bin/bash -x
 
-flip=$((RANDOM%2))
-HEAD=1
+read -p "Enter the number of times to be looped for Coin: " Num
+x=0
+HEAD=0
+TAIL=0
+while [ $Num -ne $x ]
+do
+	flip=$((RANDOM%2))
 
-if [ $HEAD -eq $flip ]
-then
-	echo HEAD
-else
-	echo TAIL
-fi
+	if [ 1 -eq $flip ]
+	then
+		((HEAD++))
+	else
+		((TAIL++))
+	fi
+
+	x=$(($x+1))
+done
+
+echo $HEAD
+echo $TAIL
